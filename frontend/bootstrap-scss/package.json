@@ -1,0 +1,52 @@
+{
+  "_from": "bootstrap-scss@4.5.2",
+  "_id": "bootstrap-scss@4.5.2",
+  "_inBundle": false,
+  "_integrity": "sha512-+eDYEFEri/byFAOkSCF2ZnAf7Zyml8Q3YSB8kn/Lviqqi2D1XKhfJCizqgcxqXncgRElk1WNnESRa50GQSVZjA==",
+  "_location": "/bootstrap-scss",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "bootstrap-scss@4.5.2",
+    "name": "bootstrap-scss",
+    "escapedName": "bootstrap-scss",
+    "rawSpec": "4.5.2",
+    "saveSpec": null,
+    "fetchSpec": "4.5.2"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/bootstrap-scss/-/bootstrap-scss-4.5.2.tgz",
+  "_shasum": "c2df80ca1bdff0986dd6d86e3dcb3e53795f0e10",
+  "_spec": "bootstrap-scss@4.5.2",
+  "_where": "/Users/salimkobzili/Desktop/Groupomania/frontend",
+  "author": {
+    "name": "Cristian Trifan",
+    "email": "criss.trifan@gmail.com",
+    "url": "https://crissdev.com"
+  },
+  "bugs": {
+    "url": "https://github.com/crissdev/bootstrap-scss/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "Bootstrap's SCSS files (only)",
+  "homepage": "https://github.com/crissdev/bootstrap-scss",
+  "keywords": [
+    "bootstrap",
+    "bootstrap-scss",
+    "responsive",
+    "scss"
+  ],
+  "license": "MIT",
+  "main": "bootstrap.scss",
+  "name": "bootstrap-scss",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/crissdev/bootstrap-scss.git"
+  },
+  "version": "4.5.2"
+}

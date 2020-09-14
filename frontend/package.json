@@ -1,0 +1,43 @@
+{
+  "name": "groupomania",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.30",
+    "@fortawesome/free-solid-svg-icons": "^5.14.0",
+    "@fortawesome/vue-fontawesome": "^0.1.10",
+    "axios": "^0.19.2",
+    "bootstrap": "^4.5.2",
+    "bootstrap-scss": "^4.5.2",
+    "core-js": "^3.6.5",
+    "dist": "^0.1.2",
+    "font": "0.0.4",
+    "jquery": "^3.5.1",
+    "jwt-decode": "^2.2.0",
+    "moment": "^2.27.0",
+    "popper.js": "^1.16.1",
+    "vue": "^2.6.11",
+    "vue-localstorage": "^0.6.2",
+    "vue-moment": "^4.1.0",
+    "vue-router": "^3.2.0",
+    "vue-sessionstorage": "^1.0.0",
+    "vuex": "^3.5.1"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~4.4.0",
+    "@vue/cli-plugin-eslint": "~4.4.0",
+    "@vue/cli-plugin-router": "^4.4.6",
+    "@vue/cli-service": "~4.4.0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.7.2",
+    "eslint-plugin-vue": "^6.2.2",
+    "node-sass": "^4.12.0",
+    "sass-loader": "^8.0.2",
+    "vue-template-compiler": "^2.6.11"
+  }
+}
