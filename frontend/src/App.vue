@@ -6,27 +6,19 @@
   </div>
 </template>
 <script>
+import headtop from "./components/headtop.vue";
+import espace from "./components/espace.vue";
 
-
-
-import headtop from './components/headtop.vue'
-import espace from './components/espace.vue'
-
-
-export default{
-  name: 'App',
-  data(){
-
-      return {
-        
-    }
+export default {
+  name: "App",
+  data() {
+    return {};
   },
   components: {
-    'headtop' : headtop,
-    'espace'    : espace
+    headtop: headtop,
+    espace: espace
   }
-
-}
+};
 </script>
 
 
