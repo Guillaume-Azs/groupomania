@@ -4,24 +4,27 @@
     <div class="bienvenu" v-for="usr in user" :key="usr.userId">
       <h2>
         Bienvenue
-        <span>{{usr.username}}</span>!
+        <span>{{ usr.username }}</span
+        >!
       </h2>
     </div>
     <div class="getMessag">
       <h3 id="mess">Les messages</h3>
       <div id="messdiv" class="msg" v-for="mess in msg" :key="mess.idMESSAGES">
-        <p class="nameus">{{mess.username}}</p>
-        <p class="text">{{mess.message}}</p>
-        <p class="datt">{{moment(mess.created_at).fromNow()}}</p>
+        <p class="nameus">{{ mess.username }}</p>
+        <p class="text">{{ mess.message }}</p>
+        <p class="datt">{{ moment(mess.created_at).fromNow() }}</p>
         <button
           @click="updatemess(mess.idMESSAGES)"
-          v-if="data.username == mess.username || data.status =='admin'"
+          v-if="data.username == mess.username || data.status == 'admin'"
           type="button"
           class="btn btn-success btn-sm mod"
-        >modifier</button>
+        >
+          modifier
+        </button>
         <button
           @click="deletemess(mess.idMESSAGES)"
-          v-if="data.username == mess.username || data.status =='admin'"
+          v-if="data.username == mess.username || data.status == 'admin'"
           type="button"
           class="btn btn-danger btn-sm sup"
         >
@@ -46,7 +49,12 @@
       </div>
     </div>
     <h5>Écriver votre message</h5>
-    <form id="formtog" method="POST" class="from-group" @submit.prevent="sendMessage">
+    <form
+      id="formtog"
+      method="POST"
+      class="from-group"
+      @submit.prevent="sendMessage"
+    >
       <div class="form-group">
         <label for="message">
           <textarea
@@ -59,7 +67,14 @@
           ></textarea>
         </label>
       </div>
-      <button type="submit" id="envoi" class="btn btn-primary">Envoyer</button>
+      <div class="button">
+        <button type="submit" id="envoi" class="btn btn-primary">
+          Envoyer
+        </button>
+        <button type="submit" id="image">
+          Insérer une image
+        </button>
+      </div>
     </form>
   </div>
 </template>
@@ -304,6 +319,7 @@ h5 {
 #envoi {
   position: relative;
   top: 30px;
+  height: 40px;
 }
 
 .form-group {
@@ -356,6 +372,14 @@ h5 {
     right: 70px;
     bottom: 40px;
   }
+}
+.button {
+  display: flex;
+  justify-content: center;
+}
+#image {
+  margin-top: 30px;
+  margin-left: 20px;
 }
 
 @media screen and (min-width: 320px) and (max-width: 500px) {
