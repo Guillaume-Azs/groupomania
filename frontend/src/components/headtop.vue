@@ -2,8 +2,12 @@
   <!--Header-->
   <div class="home" id="hom">
     <nav class="navbar navbar-expand-lg navbar-light bg-primary" id="navv">
-      <img id="icon" alt="logo de l'entreprise" src="../assets/icon-left-font-monochrome-white.svg" />
-      <router-link id="routhome" to="/home">Groupomania</router-link>
+      <img
+        id="icon"
+        alt="logo de l'entreprise"
+        src="../assets/icon-left-font-monochrome-white.svg"
+      />
+      <h1 id="routhome">Groupomania</h1>
       <buttondeco></buttondeco>
     </nav>
   </div>
@@ -69,7 +73,7 @@ export default {
 
 #toggleButton {
   background-color: lightblue;
-  color: #15304d;
+  color: #a2b0be;
 }
 
 .dropdown-item:hover {
@@ -84,7 +88,7 @@ export default {
     position: relative;
   }
   .drop-item {
-    background-color: #162535;
+    background-color: #cedae7;
   }
   #linav {
     color: #000;

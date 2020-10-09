@@ -1,7 +1,6 @@
 <template>
   <!--Barre latérales de navigation-->
   <nav id="navv" class="navbar navbar-expand-lg navbar-light bg-primary">
-    <a class="navbar-brand" href="#"></a>
     <button
       class="navbar-toggler"
       type="button"
@@ -19,8 +18,12 @@
           <router-link class="dropdown-item" to="/home">Accueil</router-link>
         </li>
         <div id="change">
-          <router-link class="dropdown-item" to="/inscription">Inscription</router-link>
-          <router-link class="dropdown-item" to="/connexion">Connexion</router-link>
+          <router-link class="dropdown-item" to="/inscription"
+            >Inscription</router-link
+          >
+          <router-link class="dropdown-item" to="/connexion"
+            >Connexion</router-link
+          >
         </div>
       </ul>
     </div>
@@ -60,7 +63,7 @@ export default {
     left: 0;
     width: 155px;
     height: 100%;
-    background-color: #201429;
+    background-color: #a34259;
     overflow-y: auto;
     padding-top: 100px;
   }
