@@ -1,13 +1,12 @@
 <template>
   <!--Header-->
   <div class="home" id="hom">
-    <nav class="navbar navbar-expand-lg navbar-light bg-primary" id="navv">
+    <nav id="navv">
       <img
         id="icon"
         alt="logo de l'entreprise"
         src="../assets/icon-left-font-monochrome-white.svg"
       />
-      <h1 id="routhome">Groupomania</h1>
       <buttondeco></buttondeco>
     </nav>
   </div>
@@ -43,6 +42,7 @@ export default {
 
 #navv {
   height: 70px;
+  background-color: #18294c;
 }
 
 #droplink {
@@ -50,7 +50,8 @@ export default {
 }
 
 #icon {
-  width: 10%;
+  width: 20%;
+  margin-top: 20px;
 }
 
 #navbarDropdown {
@@ -82,11 +83,6 @@ export default {
 }
 
 @media screen and (min-width: 319px) and (max-width: 1024px) {
-  #icon {
-    width: 70px;
-    bottom: 10px;
-    position: relative;
-  }
   .drop-item {
     background-color: #cedae7;
   }

@@ -2,7 +2,11 @@
   <!--Formulaire de connexion-->
   <div id="from">
     <div id="nav">
-      <img id="iconpc" alt="logo de l'entreprise" src="../assets/iconpurple.svg" />
+      <img
+        id="iconpc"
+        alt="logo de l'entreprise"
+        src="../assets/iconpurple.svg"
+      />
       <h1>Connexion</h1>
     </div>
     <form method="POST" id="formulaire" @submit.prevent="envoi">

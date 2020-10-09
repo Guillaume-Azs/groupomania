@@ -1,6 +1,6 @@
 <template>
   <!--Barre latérales de navigation-->
-  <nav id="navv" class="navbar navbar-expand-lg navbar-light bg-primary">
+  <nav id="navv" class="navbar navbar-expand-lg navbar-light">
     <button
       class="navbar-toggler"
       type="button"
@@ -54,6 +54,14 @@ export default {
 <style lang="scss" scoped>
 .dropdown-item {
   color: #fff;
+}
+
+.navbar-toggler {
+  color: white;
+}
+
+#navv {
+  background-color: #18294c;
 }
 
 @media (min-width: 810px) {
