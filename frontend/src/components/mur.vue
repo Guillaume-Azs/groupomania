@@ -68,11 +68,10 @@
         </label>
       </div>
       <div class="button">
-        <button type="submit" id="envoi" class="btn btn-primary">
+        <input type="file" name="image" id="image" @change="onFileChange">
+          <label for="image"></label>
+          <button type="submit" id="envoi" class="btn btn-primary">
           Envoyer
-        </button>
-        <button type="submit" id="image">
-          Insérer une image
         </button>
       </div>
     </form>
@@ -96,7 +95,8 @@ export default {
       moment: moment,
       imess: "",
       update: "",
-      user: ""
+      user: "",
+      gifFile: null
     };
   },
   mounted() {
@@ -104,7 +104,6 @@ export default {
     axios
       .get("http://localhost:3000/api/getmessages")
       .then(response => {
-        console.log(response.data);
         this.msg = response.data;
       })
       .catch(error => console.log(error));
@@ -114,7 +113,6 @@ export default {
     axios
       .get(`http://localhost:3000/api/getoneuser/${data.userId}`)
       .then(response => {
-        console.log(response.data);
         this.user = response.data;
       })
       .catch(error => console.log(error));
@@ -147,7 +145,6 @@ export default {
             }
           )
           .then(() => {
-            console.log("message envoyé");
             this.message === "";
             alert("votre message a bien été envoyé !");
             location.reload(true);
@@ -156,6 +153,14 @@ export default {
             console.log("le message n'a pas été envoyé");
           });
       }
+    },
+    onFileChange: function(e) {
+      const files = e.target.files || e.dataTransfer.files;
+      if (!files.length) {
+        return;
+      }
+      // on checke si files[0] = gif
+      this.gifFile = files[0]
     },
 
     deco: function() {
@@ -189,7 +194,6 @@ export default {
             }
           )
           .then(() => {
-            console.log("message supprimé");
             alert("votre message a bien été supprimé");
             location.reload(true);
           })
