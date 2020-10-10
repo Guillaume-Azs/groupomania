@@ -68,8 +68,7 @@
         </label>
       </div>
       <div class="button">
-        <input type="file" name="image" id="image" @change="onFileChange">
-          <label for="image"></label>
+    <input type="file" @change="onFileChange" style="margin-top: 30px">
           <button type="submit" id="envoi" class="btn btn-primary">
           Envoyer
         </button>
@@ -96,7 +95,7 @@ export default {
       imess: "",
       update: "",
       user: "",
-      gifFile: null
+      gifFiles: ""
     };
   },
   mounted() {
@@ -156,11 +155,20 @@ export default {
     },
     onFileChange: function(e) {
       const files = e.target.files || e.dataTransfer.files;
-      if (!files.length) {
+      if(!files.length){
         return;
       }
-      // on checke si files[0] = gif
-      this.gifFile = files[0]
+      this.gifFiles = files[0];
+    },
+    createImage(file) {
+      var gifFiles = new gifFiles();
+      var reader = new FileReader();
+      var vm = this;
+
+      reader.onload = (e) => {
+        vm.image = e.target.result;
+      };
+      reader.readAsDataURL(file);
     },
 
     deco: function() {
