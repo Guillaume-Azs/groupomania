@@ -92,7 +92,7 @@ export default {
               window.location.href = "http://localhost:8080//#/dashadmin";
               location.reload(true);
             } else {
-              window.location.href = "http://localhost:8080//#/mur";
+              window.location.href = "http://localhost:8080/#/mur";
               location.reload(true);
             }
           })

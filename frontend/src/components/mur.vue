@@ -48,7 +48,7 @@
         </button>
       </div>
     </div>
-    <h5>Écriver votre message</h5>
+    <h5>Écrivez votre message</h5>
     <form
       id="formtog"
       method="POST"
@@ -160,23 +160,11 @@ export default {
       }
       this.gifFiles = files[0];
     },
-    createImage(file) {
-      var gifFiles = new gifFiles();
-      var reader = new FileReader();
-      var vm = this;
-
-      reader.onload = (e) => {
-        vm.image = e.target.result;
-      };
-      reader.readAsDataURL(file);
-    },
 
     deco: function() {
       //Déconnection
-      if (window.confirm("Voulez-vous vraiment vous déconnecter ?")) {
         this.$session.remove("user");
-        window.location.href = "http://localhost:8080//#/home";
-      }
+        window.location.href = "http://localhost:8080/#/home";
     },
 
     deletemess: function(delid) {
@@ -252,6 +240,10 @@ h2 {
   position: relative;
   top: 30px;
   display: inline;
+  background-color: #18294c;
+  color: white;
+  border-radius: 2%;
+  border: 2px solid #a34259;
 }
 
 span {

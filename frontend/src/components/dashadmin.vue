@@ -130,10 +130,8 @@ export default {
 methods:{
 
    deco: function(){//Fonction pour déconnecter la session de l'application
-      if(window.confirm('Voulez-vous vraiment vous déconnecter ?')){
         this.$localStorage.remove('user');
         window.location.href = "http://localhost:8080//#/home";
-      } 
     },
 
     deleteusr: function(param) {//Fonction pour la suppression des comptes utilisateurs

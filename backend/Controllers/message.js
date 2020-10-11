@@ -22,7 +22,7 @@ exports.postmessage = (req, res, next) => {
   const message = {
     message: req.body.message,
     idUSERS: req.body.idUSERS,
-    username: req.body.username
+    username: req.body.username,
   }
   console.log(message);
 
