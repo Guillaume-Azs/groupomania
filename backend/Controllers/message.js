@@ -1,6 +1,7 @@
 const db = require('../mysqlconfig');//Configuration information de connections mysql
 const dotenv = require("dotenv");
 dotenv.config({ path: './.env' });
+const base64ImageToFile = require('base64image-to-file');
 
 
 
@@ -8,7 +9,7 @@ dotenv.config({ path: './.env' });
 
 //Création de la table message 
 exports.createmessageTable = (req, res) => {
-  let mess = 'CREATE TABLE messages (idMESSAGES int AUTO_INCREMENT,`idUSERS` int NOT NULL, message text NOT NULL,`username` varchar(100) NOT NULL, `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP, PRIMARY KEY (idMESSAGES), FOREIGN KEY (`idUSERS`) REFERENCES `user` (`id`) ON DELETE CASCADE)ENGINE=InnoDB AUTO_INCREMENT=124 DEFAULT CHARSET=utf8';
+  let mess = 'CREATE TABLE messages (idMESSAGES int AUTO_INCREMENT,`idUSERS` int NOT NULL, message text NOT NULL,`username` varchar(100) NOT NULL, `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP, PRIMARY KEY (idMESSAGES), FOREIGN KEY (`idUSERS`) REFERENCES `user` (`id`) ON DELETE CASCADE)ENGINE=InnoDB AUTO_INCREMENT=124 DEFAULT CHARSET=utf8, `image` varchar(255)';
   db.query(mess, (err, result) => {
     if (err) throw err
     console.log(result)
@@ -19,20 +20,35 @@ exports.createmessageTable = (req, res) => {
 
 //Poster un message 
 exports.postmessage = (req, res, next) => {
-  const message = {
-    message: req.body.message,
-    idUSERS: req.body.idUSERS,
-    username: req.body.username,
-  }
-  console.log(message);
 
-  db.query(`INSERT INTO messages SET ?`, message, (error, result, field) => {
-    if (error) {
-      return res.status(400).json({ error })
+  const base64Image = req.body.image;
+  const date = new Date();
+  const currentDate = date.getFullYear() + "-" + (date.getMonth()+1) + "-" + date.getDate();
+  const userId = req.body.idUSERS;
+  const fileName = userId + "-" + currentDate;
+
+  // create an image with the a given name ie 'image'
+  base64ImageToFile(base64Image, 'tmp/', fileName, function(err) {
+    if(err) {
+      return console.error(err);
     }
-    return res.status(201).json({ message: 'Votre message a été posté !' })
-
-  })
+    const message = {
+      message: req.body.message,
+      idUSERS: req.body.idUSERS,
+      username: req.body.username,
+      // ...imageObject,
+      image: fileName + '.gif',
+    }
+    console.log(message);
+    db.query(`INSERT INTO messages SET ?`, message, (error, result, field) => {
+      if (error) {
+        return res.status(400).json({ error })
+      }
+      return res.status(201).json({ message: 'Votre message a été posté !' })
+  
+    })
+  });
+  
 };
 
 

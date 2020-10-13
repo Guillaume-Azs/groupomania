@@ -12,9 +12,9 @@
       <h5>modifier votre message</h5>
       <form id="form" method="POST" class="from-group" @submit.prevent= "updatemessage" >
         <div class="form-group">
-          <!-- <label for="message">
+          <label for="message">
             <textarea  class="form-control" name="message" id="message" cols="50" rows="5" v-model= "message"></textarea>
-          </label> -->
+          </label>
         </div>
         <input type="file" name="image" id="image" @change="onFileChange">
         <button  type="submit" id="envoi" class="btn btn-primary">Envoyer</button>
@@ -89,7 +89,7 @@ export default {
                     console.log('message modifié')
                     this.message ==="";
                     alert('votre message a bien été modifié !')
-                    window.location.href = "http://localhost:8080//#/mur"
+                    window.location.href = "http://localhost:8080/#/mur"
 
                     
        })

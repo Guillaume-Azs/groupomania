@@ -1,7 +1,7 @@
 <template>
   <!--Footer-->
   <div class="containerfooter">
-    <footer class="page-footer font-small special-color-dark pt-4">
+    <footer class="page-footer font-small special-color-dark pt-2">
       <div class="container">
         <div id="foot" class="footer-copyright text-center py-3">
           © 2020 Copyright:
@@ -20,17 +20,16 @@ export default {
 
 <style lang="scss" scoped>
 .containerfooter {
-  position: fixed;
   bottom: 0;
   width: 100%;
-  height: 60px;
+  height: 50px;
+  position: fixed;
 }
 
 footer {
   background-color: #18294c;
 
   @media screen and (min-width: 320px) and (max-width: 830px) {
-    position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
@@ -46,8 +45,6 @@ a:hover {
 }
 
 #foot {
-  position: relative;
-  bottom: 10px;
   color: #fff;
 }
 </style>

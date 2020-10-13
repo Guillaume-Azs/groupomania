@@ -13,7 +13,7 @@
                 <p class="allp">{{usr.email}}</p>
                 <h4> Votre status</h4>
                 <p class="allp" id="last">{{data.status}}</p>
-                <button @click= "updateuser" class="btn btn-success suc">Modifer vos information</button>
+                <button @click= "updateuser" class="btn btn-dark suc">Modifer vos information</button>
                 <button @click= "deleteUser" class="btn btn-danger sup">Supprimer votre compte</button>
             </div>   
         </div>

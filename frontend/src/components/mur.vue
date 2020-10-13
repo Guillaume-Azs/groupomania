@@ -13,6 +13,7 @@
       <div id="messdiv" class="msg" v-for="mess in msg" :key="mess.idMESSAGES">
         <p class="nameus">{{ mess.username }}</p>
         <p class="text">{{ mess.message }}</p>
+        <img :src="'http://localhost:3000/tmp/' + mess.image">
         <p class="datt">{{ moment(mess.created_at).fromNow() }}</p>
         <button
           @click="updatemess(mess.idMESSAGES)"
@@ -54,22 +55,25 @@
       method="POST"
       class="from-group"
       @submit.prevent="sendMessage"
+      enctype="multipart/form-data"
     >
       <div class="form-group">
         <label for="message">
-          <textarea
-            class="form-control"
-            name="message"
-            id="message"
-            cols="50"
-            rows="5"
-            v-model="message"
-          ></textarea>
+          Message
         </label>
-      </div>
+        <textarea
+          class="form-control"
+          name="message"
+          id="message"
+          cols="30"
+          rows="5"
+          v-model="message"
+        >
+        </textarea>
+      </div> 
       <div class="button">
-        <input type="file" name="image" id="image" @change="onFileChange">
-          <button type="submit" id="envoi" class="btn btn-danger">
+        <input type="file" @change="onFileChange" id="image" name="image" accept="image/png, image/jpeg, image/gif"/>
+        <button type="submit" id="envoi" class="btn btn-danger">
           Envoyer
         </button>
       </div>
@@ -95,7 +99,7 @@ export default {
       imess: "",
       update: "",
       user: "",
-      gifFile: null
+      gifFile: "",
     };
   },
   mounted() {
@@ -122,7 +126,7 @@ export default {
       let token = this.data.token;
       let idUSERS = this.data.userId;
       let userName = this.data.username;
-      if (this.message === "") {
+      if (this.message.length === 0 && this.gifFile === null) {
         alert(
           "Vous n'avez rien écris vous ne pouvez pas envoyé un message vide !"
         );
@@ -132,9 +136,10 @@ export default {
             "http://localhost:3000/api/postmessage",
             {
               message: this.message,
-              token: this.data.token,
-              idUSERS: idUSERS,
-              username: userName
+              token,
+              idUSERS,
+              username: userName,
+              image: this.gifFile,
             },
             {
               headers: {
@@ -153,15 +158,17 @@ export default {
           });
       }
     },
-    onFileChange: function(e) {
+  onFileChange: function(e) {
       const files = e.target.files || e.dataTransfer.files;
-      if (!files.length) {
+      if (files.length === 0) {
         return;
       }
-      // on checke si files[0] = gif
-      this.gifFile = files[0]
+      const reader = new FileReader();
+      reader.readAsDataURL(files[0]);
+      reader.onload = () => {
+        this.gifFile = reader.result
+      }
     },
-
     deco: function() {
       //Déconnection
         this.$session.remove("user");
@@ -205,7 +212,7 @@ export default {
 
       let imess = idmess;
 
-      window.location.href = `http://localhost:8080//#/res?id=${imess}`;
+      window.location.href = `http://localhost:8080/#/res?id=${imess}`;
       location.reload(true);
     },
 
@@ -214,14 +221,14 @@ export default {
 
       let irep = idmess;
 
-      window.location.href = `http://localhost:8080//#/reponses?id=${irep}`;
+      window.location.href = `http://localhost:8080/#/reponses?id=${irep}`;
       location.reload(true);
     },
 
     view: function(idmess) {
       let iview = idmess;
 
-      window.location.href = `http://localhost:8080//#/viewresp?id=${iview}`;
+      window.location.href = `http://localhost:8080/#/viewresp?id=${iview}`;
       location.reload(true);
     }
   }
@@ -250,6 +257,18 @@ h2 {
 span {
   text-transform: uppercase;
 }
+img {
+  height: 80px;
+}
+.form-control {
+  width: 50%;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+.form-group {
+  height: 50px;
+}
 
 .text,
 .datt {
@@ -264,7 +283,7 @@ span {
   border: 1px solid lightgray;
   width: 50%;
   line-height: 15px;
-  height: 120px;
+  height: 200px;
   position: relative;
   top: 70px;
   margin-right: auto;
@@ -323,13 +342,8 @@ h5 {
 
 #envoi {
   position: relative;
-  top: 30px;
-  height: 40px;
-}
-
-.form-group {
-  position: relative;
-  top: 150px;
+  height: 50px;
+  margin-top: 20px;
 }
 
 #deco {
@@ -381,12 +395,12 @@ h5 {
 .button {
   display: flex;
   justify-content: center;
+  margin-bottom: 100px;
 }
 #image {
   margin-top: 30px;
   margin-left: 20px;
 }
-
 @media screen and (min-width: 320px) and (max-width: 500px) {
   #reply {
     position: relative;

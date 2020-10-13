@@ -17,7 +17,10 @@
                         <textarea  class="form-control" name="message" id="message" cols="50" rows="5" v-model= "message"></textarea>
                     </label>
                 </div>
+                <div class="button">
+                <input type="file" @change="onFileChange" id="image" name="image" accept="image/png, image/jpeg, image/gif"/>
                 <button  type="submit" id="envoi" class="btn btn-primary">Envoyer la réponse</button>
+                </div>
             </form> 
         </div> 
     </div>
@@ -46,7 +49,6 @@ export default {
         date:"",
         moment: moment,
         idme: idme
-
       }
     },
     mounted (){ 
@@ -66,7 +68,7 @@ export default {
         deco: function(){//Déconnection
             if(window.confirm('Voulez-vous vraiment vous déconnecter ?')){
               this.$session.remove('user');
-              window.location.href = "http://localhost:8080//#/home";
+              window.location.href = "http://localhost:8080/#/home";
             } 
       },
 
@@ -86,7 +88,6 @@ export default {
           idUSERS : idUSERS,
           username: userName,
           idMESSAGES:idme
-
         },{
           headers: {
             'Content-type': 'application/json',
@@ -97,7 +98,7 @@ export default {
                     console.log('réponse envoyé')
                     this.message ==="";
                     alert('votre reponse a bien été envoyé !')
-                    window.location.href = `http://localhost:8080//#/viewresp?id=${idme}`
+                    window.location.href = `http://localhost:8080/#/mur`
 
                     
        })
@@ -235,5 +236,11 @@ h5{
   position: relative;
   bottom: 150px;
 }
-
+.button {
+  display: flex;
+  justify-content: center;
+}
+#image {
+  margin-top: 60px;
+}
 </style>
