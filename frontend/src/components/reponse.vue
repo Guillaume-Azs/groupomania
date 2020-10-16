@@ -18,7 +18,6 @@
                     </label>
                 </div>
                 <div class="button">
-                <input type="file" @change="onFileChange" id="image" name="image" accept="image/png, image/jpeg, image/gif"/>
                 <button  type="submit" id="envoi" class="btn btn-primary">Envoyer la réponse</button>
                 </div>
             </form> 
@@ -98,7 +97,7 @@ export default {
                     console.log('réponse envoyé')
                     this.message ==="";
                     alert('votre reponse a bien été envoyé !')
-                    window.location.href = `http://localhost:8080/#/mur`
+                    window.location.href = `http://localhost:8080/#/home`
 
                     
        })

@@ -13,7 +13,7 @@
       <div id="messdiv" class="msg" v-for="mess in msg" :key="mess.idMESSAGES">
         <p class="nameus">{{ mess.username }}</p>
         <p class="text">{{ mess.message }}</p>
-        <img :src="'http://localhost:3000/tmp/' + mess.image">
+        <img :src="'http://localhost:3000/tmp/' + mess.image" alt="image">
         <p class="datt">{{ moment(mess.created_at).fromNow() }}</p>
         <button
           @click="updatemess(mess.idMESSAGES)"
@@ -33,7 +33,7 @@
         </button>
         <button
           @click="response(mess.idMESSAGES)"
-          class="btn btn-info btn-circle text-uppercase bt"
+          class="btn btn-danger btn-circle text-uppercase bt"
           id="reply"
         >
           <span class="glyphicon glyphicon-share-alt"></span>Repondre
@@ -126,7 +126,7 @@ export default {
       let token = this.data.token;
       let idUSERS = this.data.userId;
       let userName = this.data.username;
-      if (this.message.length === 0 && this.gifFile === null) {
+      if (this.message.length === 0) {
         alert(
           "Vous n'avez rien écris vous ne pouvez pas envoyé un message vide !"
         );

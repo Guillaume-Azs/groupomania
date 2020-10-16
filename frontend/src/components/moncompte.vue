@@ -67,7 +67,7 @@ methods:{
                     this.$localStorage.remove('user')
                     document.getElementById('moncompte').style.display = 'none'
                     alert('votre compte a bien été supprimé !')
-                    window.location.href = " http://localhost:8080//#/home"
+                    window.location.href = " http://localhost:8080/#/home"
                     
        })
        .catch(() =>{
@@ -79,7 +79,7 @@ methods:{
          deco: function(){// Fonction qui permet à l'utilisateur de se déconnecter
             if(window.confirm('Voulez-vous vraiment vous déconnecter ?')){
               this.$localStorage.remove('user');
-              window.location.href = " http://localhost:8080//#/home";
+              window.location.href = " http://localhost:8080/#/home";
               location.reload(true);
             } 
       },
@@ -88,7 +88,7 @@ methods:{
 
           let iduser = this.data.userId
 
-         window.location.href = `http://localhost:8080//#/updateuser?id=${iduser}`
+         window.location.href = `http://localhost:8080/#/updateuser?id=${iduser}`
          location.reload(true);
 
 
