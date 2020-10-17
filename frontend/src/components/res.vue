@@ -16,7 +16,7 @@
             <textarea  class="form-control" name="message" id="message" cols="50" rows="5" v-model= "message"></textarea>
           </label>
         </div>
-        <input type="file" name="image" id="image" @change="onFileChange">
+        <!-- <input type="file" name="image" id="image" @change="onFileChange"> -->
         <button  type="submit" id="envoi" class="btn btn-primary">Envoyer</button>
       </form> 
     </div> 
