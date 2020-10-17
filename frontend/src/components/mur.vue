@@ -15,11 +15,13 @@
         <p class="text">{{ mess.message }}</p>
         <img :src="'http://localhost:3000/tmp/' + mess.image" alt="image">
         <p class="datt">{{ moment(mess.created_at).fromNow() }}</p>
+        <div class="buttoon">
         <button
           @click="updatemess(mess.idMESSAGES)"
           v-if="data.username == mess.username || data.status == 'admin'"
           type="button"
           class="btn btn-success btn-sm mod"
+          id="modif"
         >
           modifier
         </button>
@@ -28,8 +30,9 @@
           v-if="data.username == mess.username || data.status == 'admin'"
           type="button"
           class="btn btn-danger btn-sm sup"
+          id="icon"
         >
-          <font-awesome-icon icon="trash" />
+          <font-awesome-icon icon="trash"/>
         </button>
         <button
           @click="response(mess.idMESSAGES)"
@@ -45,11 +48,12 @@
           data-toggle="collapse"
           href="#/viewresponse"
         >
-          <span class="glyphicon glyphicon-comment"></span>Voir les réponses
+          <span class="glyphicon glyphicon-comment"></span>
+          Voir les réponses
         </button>
+        </div>
       </div>
     </div>
-    <h5>Écrivez votre message</h5>
     <form
       id="formtog"
       method="POST"
@@ -58,8 +62,8 @@
       enctype="multipart/form-data"
     >
       <div class="form-group">
-        <label for="message">
-          Message
+        <label class="messa" for="message">
+          
         </label>
         <textarea
           class="form-control"
@@ -111,7 +115,7 @@ export default {
       })
       .catch(error => console.log(error));
 
-    let data = JSON.parse(this.$localStorage.get("user"));
+    let data = JSON.parse(this.$localStorage.removeItem("userId", "email"));
     //Appel à l'Api pour l'affichage des informations utilisateurs
     axios
       .get(`http://localhost:3000/api/getoneuser/${data.userId}`)
@@ -253,6 +257,9 @@ h2 {
   border-radius: 2%;
   border: 2px solid #a34259;
 }
+h5 {
+  margin-top: 10px;
+}
 
 span {
   text-transform: uppercase;
@@ -263,25 +270,27 @@ img {
 .form-control {
   width: 50%;
   margin: 0 auto;
-  margin-top: 20px;
+  margin-top: 100px;
 }
-
 .form-group {
-  height: 50px;
+  height: 170px;
+  margin-top: 40px;
 }
 
 .text,
 .datt {
   color: #fff;
 }
-
+.messa {
+  margin-top: 10px;
+}
 .bienvuenu {
   position: relative;
 }
 
 .msg {
   border: 1px solid lightgray;
-  width: 50%;
+  width: 70%;
   line-height: 15px;
   height: 200px;
   position: relative;
@@ -292,9 +301,13 @@ img {
   margin-left: auto;
   margin-top: 10px;
   margin-bottom: 80px;
-  @media screen and (min-width: 320px) and (max-width: 830px) {
-    width: 95%;
-    height: 150px;
+  @media screen and (min-width: 600px) and (max-width: 830px) {
+    width: 100%;
+    height: 250px;
+  }
+  @media screen and (min-width: 300px) and (max-width: 600px) {
+    width: 100%;
+    height: 250px;
   }
 }
 
@@ -338,6 +351,7 @@ h5 {
 #message {
   position: relative;
   bottom: 100px;
+  margin-bottom: 70px;
 }
 
 #envoi {
@@ -357,8 +371,8 @@ h5 {
   height: 30%;
   margin-right: 10px;
   position: relative;
-  margin-bottom: 20px;
-  top: 20px;
+  margin-bottom: 0px;
+  top: 5px;
 }
 .btn-circle span {
   padding-right: 0px;
@@ -370,14 +384,23 @@ h5 {
 h5 {
   margin-top: 100px;
 }
+#modif {
+  margin-right: 0;
+}
+
 
 .sup {
   position: absolute;
   left: 570px;
   bottom: 10px;
-  @media screen and (min-width: 320px) and (max-width: 500px) {
+  @media screen and (min-width: 500px) and (max-width: 600px) {
     position: relative;
-    left: 165px;
+    left: 305px;
+    bottom: 40px;
+  }
+  @media screen and (min-width: 300px) and (max-width: 500px) {
+    position: relative;
+    left: 155px;
     bottom: 40px;
   }
 }
@@ -385,11 +408,11 @@ h5 {
 .mod {
   position: relative;
   bottom: 50px;
-  right: 120px;
-  @media screen and (min-width: 320px) and (max-width: 500px) {
+  right: 0px;
+  @media screen and (min-width: 320px) and (max-width: 600px) {
     position: relative;
-    right: 70px;
-    bottom: 40px;
+    right: 0px;
+    bottom: 50px;
   }
 }
 .button {
@@ -397,22 +420,57 @@ h5 {
   justify-content: center;
   margin-bottom: 100px;
 }
+.getMessag {
+  margin-bottom: 180px;
+}
 #image {
   margin-top: 30px;
   margin-left: 20px;
 }
-@media screen and (min-width: 320px) and (max-width: 500px) {
+@media screen and (min-width: 450px) and (max-width: 500px) {
   #reply {
-    position: relative;
-    top: 40px;
-    right: 50px;
-    margin-bottom: 10px;
+    height: 40px;
+    margin-bottom: 50px;
   }
 
   #voir {
-    position: relative;
-    margin-top: 15px;
-    margin-bottom: 10px;
+    font-size: 10px;
+    margin-bottom: 50px;
+    width: 20%;
+    height: 40px
+  }
+  #icon {
+    margin-left: 100px;
+    margin-bottom: 50px;
+    margin-top: 40px;
+  }
+  .buttoon {
+    display: flex;
+    height: 45px;
+  }
+  .sup {
+    left: 250px;
+    height: 30px;
+  }
+  .msg {
+    width: 100%;
+  }
+  template {
+    width: 100%;
+  }
+  .button {
+    display: block;
+  }
+}
+@media screen and (min-width: 0px) and (max-width: 300px) {
+  .sup {
+    left: 210px;
+  }
+  .msg {
+    width: 100%;
+  }
+  .button {
+    display: block;
   }
 }
 </style>

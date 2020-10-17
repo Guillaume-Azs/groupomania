@@ -39,7 +39,10 @@ export default {
     right: 20px;
   }
 }
-
+.home {
+  width: 100%;
+  margin: 0 auto;
+}
 #navv {
   height: 70px;
   background-color: #18294c;

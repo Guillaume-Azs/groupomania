@@ -39,7 +39,7 @@ export default {
     data() {
 
       return {
-        data:JSON.parse(this.$localStorage.get('user')),
+        data:JSON.parse(this.$localStorage.getItem('token')),
         message:"",
         msg:"",
         date:"",

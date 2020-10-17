@@ -5,7 +5,7 @@
         <button type="button" class="btn btn-light btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <span>{{usr.username}}</span>
         </button>
-        <div class="dropdown-menu col-sm">
+        <div class="dropdown-menu col-lg">
             <p class="dropdown-item "><span>{{usr.username}}</span></p>
             <div class="dropdown-divider"></div>
             <router-link id="mur" to="/mur">Retour au mur</router-link>
@@ -74,35 +74,40 @@ span{
 }
 
 
-button{
-    margin-bottom: 10px;
+.button{
+    margin-bottom: 100px;
 }
 
 .btn-group{
   position: absolute;
-  left:1160px;
+  left:960px;
   top: 40px;
+  @media screen and (min-width: 0px) and (max-width: 320px) {
+      left: 70%;
+      top: 10%;
+      z-index: 10;
+  }
   @media screen and  (min-width: 320px) and (max-width:500px) {
-      left:40%;
-      top: 90%;
+      left:70%;
+      top: 10%;
       z-index: 10;  
   }
    @media screen and  (min-width: 501px) and (max-width:768px) {
-      left:45%;
-      top: 90%;
+      left:75%;
+      top: 10%;
       z-index: 10;
       
   }
    @media screen and  (min-width: 769px) and (max-width:1025px) {
-      left:47%;
-      top: 90%;
+      left:70%;
+      top: 10%;
       z-index: 10;
       
   }
 }
 
 #mur, #compte, #deco{
-  position: relative;
+//   position: relative;
   left: 15px;
 }
 
