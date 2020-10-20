@@ -29,9 +29,9 @@
 import axios from 'axios'
 
 
-let url = document.location.href;
-let idme = url.substring(32, 35);
-console.log(idme)
+const rawUrlParams = window.location.href.split('?')[1];
+const urlParams = new URLSearchParams('?' + rawUrlParams);
+const idme = urlParams.get('id');
 
 let moment = require('moment')
 moment.locale('fr');
@@ -87,7 +87,7 @@ export default {
         })
         .then (() => { 
                     console.log('message modifié')
-                    this.message ==="";
+                    this.message === "";
                     alert('votre message a bien été modifié !')
                     window.location.href = "http://localhost:8080/#/mur"
 
@@ -103,7 +103,7 @@ export default {
       deco: function(){//Déconnection
             if(window.confirm('Voulez-vous vraiment vous déconnecter ?')){
               this.$session.remove('user');
-              window.location.href = "http://localhost:8080//#/home";
+              window.location.href = "http://localhost:8080/#/home";
             } 
       }
     }

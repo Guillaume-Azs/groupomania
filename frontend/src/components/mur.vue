@@ -115,7 +115,7 @@ export default {
       })
       .catch(error => console.log(error));
 
-    let data = JSON.parse(this.$localStorage.removeItem("userId", "email"));
+    let data = JSON.parse(this.$localStorage.get("user"));
     //Appel à l'Api pour l'affichage des informations utilisateurs
     axios
       .get(`http://localhost:3000/api/getoneuser/${data.userId}`)

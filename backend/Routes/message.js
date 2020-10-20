@@ -8,14 +8,14 @@ const multer = require('../middelware/multer-config');
 
 router.get('/createtable', messageCtlr.createmessageTable)
 router.get('/createreponse', messageCtlr.createresponsetable)
-router.post('/postmessage',auth, multer, messageCtlr.postmessage);
+router.post('/postmessage', multer, messageCtlr.postmessage);
 router.get('/getmessages', multer, messageCtlr.getMessages);
-router.get('/getonemessage/:id',  messageCtlr.getoneMessage);
+router.get('/getonemessage/:id', messageCtlr.getoneMessage);
 router.post('/deletemessage',auth, messageCtlr.deleteMessage);
 router.post('/updatemessage',auth, messageCtlr.updateMessage);
-router.post('/responsemessage',auth, messageCtlr.responseMessage);
+router.post('/responsemessage', auth, messageCtlr.responseMessage);
 router.get('/getresponse/:id', messageCtlr.getResponse);
-router.get('/getallresponses' , messageCtlr.getAllResponses);
-router.post('/deleteresponse', auth, messageCtlr.deleteResponse);
+router.get('/getallresponses', messageCtlr.getAllResponses);
+router.post('/deleteresponse', messageCtlr.deleteResponse);
 
 module.exports = router;

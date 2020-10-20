@@ -26,10 +26,9 @@
 
 import axios from 'axios'
 
-let url = document.location.href;
-let idme = url.substring(37, 40);
-console.log(idme)
-
+const rawUrlParams = window.location.href.split('?')[1];
+const urlParams = new URLSearchParams('?' + rawUrlParams);
+const idme = urlParams.get('id');
 let moment = require('moment')
 moment.locale('fr');
 
@@ -39,7 +38,7 @@ export default {
     data() {
 
       return {
-        data:JSON.parse(this.$localStorage.getItem('token')),
+        data:JSON.parse(this.$localStorage.get('user')),
         message:"",
         msg:"",
         date:"",

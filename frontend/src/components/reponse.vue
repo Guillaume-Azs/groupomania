@@ -86,7 +86,7 @@ export default {
           token: this.data.token,
           idUSERS : idUSERS,
           username: userName,
-          idMESSAGES:idme
+          idMESSAGES: idme
         },{
           headers: {
             'Content-type': 'application/json',

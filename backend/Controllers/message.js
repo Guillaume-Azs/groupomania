@@ -2,6 +2,7 @@ const db = require('../mysqlconfig');//Configuration information de connections 
 const dotenv = require("dotenv");
 dotenv.config({ path: './.env' });
 const base64ImageToFile = require('base64image-to-file');
+const {QueryTypes} = require('sequelize');
 
 
 
@@ -32,15 +33,16 @@ exports.postmessage = (req, res, next) => {
     if(err) {
       return console.error(err);
     }
-    const message = {
+    const bindings = {
       message: req.body.message,
       idUSERS: req.body.idUSERS,
       username: req.body.username,
       // ...imageObject,
       image: fileName + '.gif',
     }
-    console.log(message);
-    db.query(`INSERT INTO messages SET ?`, message, (error, result, field) => {
+    const sqlQuery = "INSERT INTO `messages` SET ?"
+    const preparedStatement = db.format(sqlQuery, [bindings])
+    db.query(preparedStatement, (error, result, field) => {
       if (error) {
         return res.status(400).json({ error })
       }
@@ -98,7 +100,7 @@ exports.updateMessage = (req, res, next) => {
   console.log(message)
   console.log(id)
   db.query(
-    `UPDATE messages SET message='${message}' WHERE idMESSAGES=${id}`, (error, results, fields) => {
+    `UPDATE messages SET message=? WHERE idMESSAGES=?`, message + id, (error, results, fields) => {
       if (error) {
         return res.status(400).json(error)
       }
