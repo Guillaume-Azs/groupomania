@@ -14,6 +14,7 @@ router.get('/getonemessage/:id', messageCtlr.getoneMessage);
 router.post('/deletemessage',auth, messageCtlr.deleteMessage);
 router.post('/updatemessage',auth, messageCtlr.updateMessage);
 router.post('/responsemessage', auth, messageCtlr.responseMessage);
+router.post('/responsemessage', messageCtlr.responseMessage);
 router.get('/getresponse/:id', messageCtlr.getResponse);
 router.get('/getallresponses', messageCtlr.getAllResponses);
 router.post('/deleteresponse', messageCtlr.deleteResponse);
