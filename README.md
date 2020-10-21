@@ -1,7 +1,7 @@
 # groupomania
 Création réseau social
 
-cloner le repository : https://github.com/groupomania/groupomania.github.io.git
+cloner le repository : https://github.com/Guillaume-Azs/groupomania.git
  
 
 Ensuite rendez-vous dans le dossier Groupomania à l'aide du terminal ou de l'invite de commande :
@@ -30,7 +30,7 @@ PRIMARY KEY (id),UNIQUE KEY id_UNIQUE (id),
 UNIQUE KEY email_UNIQUE (email),
 UNIQUE KEY username_UNIQUE (username))ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
-#########################################
+______________________________________________
 
 ensuite il faut créer une table messages :
 
