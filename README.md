@@ -1,20 +1,7 @@
-# groupomania.github.io
+# groupomania
+Création réseau social
 
-## Créez un réseau social interne d’entreprise 
-
-
-### Technologies utilisées
-* Back
-    * NodeJS
-    * Express
-    * mySql
-* Front
-    * Vue.js 
-    * Sass
-
-#########################################
-
-Première étape cloner le repository : https://github.com/groupomania/groupomania.github.io.git
+cloner le repository : https://github.com/groupomania/groupomania.github.io.git
  
 
 Ensuite rendez-vous dans le dossier Groupomania à l'aide du terminal ou de l'invite de commande :
