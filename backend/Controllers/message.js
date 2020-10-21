@@ -92,22 +92,21 @@ exports.deleteMessage = (req, res, next) => {
   )
 }
 
-
 //Modifier un message 
 exports.updateMessage = (req, res, next) => {
   const message = req.body.message
   const id = req.body.id
   console.log(message)
   console.log(id)
-  db.query(
-    `UPDATE messages SET message=? WHERE idMESSAGES=?`, message + id, (error, results, fields) => {
-      if (error) {
-        return res.status(400).json(error)
+    db.query(
+      `UPDATE messages SET message='${message}' WHERE idMESSAGES=${id}`, (error, results, fields) => {
+        if (error) {
+          return res.status(400).json(error)
+        }
+        return res.status(200).json({ message: 'Votre message a bien été modifié !' })
       }
-      return res.status(200).json({ message: 'Votre message a bien été modifié !' })
-    }
-
-  )
+       
+    )
 
 }
 
@@ -160,7 +159,7 @@ exports.getResponse = (req, res, next) => {
 //Affichage de toutes les réponses 
 exports.getAllResponses = (req, res, next) => {
 
-  db.query('SELECT * FROM responses  ORDER BY created_at DESC', (error, result, field) => {
+  db.query('SELECT * FROM responses', (error, result, field) => {
     if (error) {
       return res.status(400).json(error)
     }

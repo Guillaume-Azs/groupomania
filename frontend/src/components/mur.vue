@@ -16,15 +16,7 @@
         <img :src="'http://localhost:3000/tmp/' + mess.image" alt="image">
         <p class="datt">{{ moment(mess.created_at).fromNow() }}</p>
         <div class="buttoon">
-        <button
-          @click="updatemess(mess.idMESSAGES)"
-          v-if="data.username == mess.username || data.status == 'admin'"
-          type="button"
-          class="btn btn-success btn-sm mod"
-          id="modif"
-        >
-          modifier
-        </button>
+          <button @click= "updatemess(mess.idMESSAGES)" v-if="data.username == mess.username || data.status =='admin'" type="button" class="btn btn-success btn-sm mod">modifier</button>
         <button
           @click="deletemess(mess.idMESSAGES)"
           v-if="data.username == mess.username || data.status == 'admin'"
@@ -210,15 +202,12 @@ export default {
           });
       }
     },
-
-    updatemess: function(idmess) {
-      //Fonction qui permet à l'utilisateur de modifié un message
-
-      let imess = idmess;
-
-      window.location.href = `http://localhost:8080/#/res?id=${imess}`;
-      location.reload(true);
-    },
+    updatemess: function (idmess) {//Fonction qui permet à l'utilisateur de modifié un message
+         
+         let imess = idmess
+         window.location.href = `http://localhost:8080/#/res?id=${imess}`
+         location.reload(true);
+       },
 
     response: function(idmess) {
       //Fonction qui permet à l'utilisateur de répondre à un message posté
