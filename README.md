@@ -1,5 +1,13 @@
-# groupomania
+:computer: # groupomania
 Création réseau social
+
+Les fonctionnalités importantes :
+
+- mis en ligne d'un gif + un message
+- répondre / modifier / supprimer le message
+- modifier / supprimer un compte
+- identifier / créer un compte
+- création d'un compte admin pour gérer les utilisateurs (gestion avec mysql pour le changement)
 
 cloner le repository : https://github.com/Guillaume-Azs/groupomania.git
  
@@ -9,7 +17,8 @@ Ensuite rendez-vous dans le dossier Groupomania à l'aide du terminal ou de l'in
 cd Groupomania
 
 
-#########################################
+______________________________________________
+
 
 * Backend: 
 
@@ -17,9 +26,7 @@ Connectez vous à mysql avec vos identifiants et mot de passe habituels, une foi
 
 commande sql : CREATE DATABASE Groupomania;
 
-ensuite il faut créer une table user :
-
-commande sql : 
+COMMANDE SQL POUR CREATION TABLE user :
 
 CREATE TABLE user  ( id int NOT NULL AUTO_INCREMENT, 
 email varchar(100) NOT NULL, 
@@ -32,9 +39,7 @@ UNIQUE KEY username_UNIQUE (username))ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CH
 
 ______________________________________________
 
-ensuite il faut créer une table messages :
-
-commande sql : 
+COMMANDE SQL POUR CREATION TABLE messages :
 
 CREATE TABLE messages (idMESSAGES int AUTO_INCREMENT,
 `idUSERS` int NOT NULL,
@@ -44,11 +49,10 @@ CREATE TABLE messages (idMESSAGES int AUTO_INCREMENT,
  PRIMARY KEY (idMESSAGES),
  FOREIGN KEY (`idUSERS`) REFERENCES `user` (`id`) ON DELETE CASCADE)ENGINE=InnoDB AUTO_INCREMENT=124 DEFAULT CHARSET=utf8;
  
- #########################################
+______________________________________________
+
  
- et enfin il faut créer une table responses :
- 
- commande sql :
+COMMANDE SQL POUR CREATION TABLE responses :
  
  CREATE TABLE responses (idRESPONSE int AUTO_INCREMENT,
  idMESSAGES int NOT NULL,
@@ -62,20 +66,16 @@ CREATE TABLE messages (idMESSAGES int AUTO_INCREMENT,
  
  #########################################
  
- Une fois que la base de donnée Groupomania a été crée et que les tables user et message et responses ont été crée, 
 
 dans le terminal (ou l'invite de commande )
-
 lancer la commande : cd backend
 
 Puis lancer la commande suivante :
      
     1)npm install 
+   
     
-    une fois l'installation terminée 
-    
-    créer un fichier .env dans le dossier backend et le remplir de la manière suivante (ne pas ajouter de virgules ou de points virgule nulle part).
-    
+ Création d'un fichier .env :
  
    NAME = 'Mysql username'
 
@@ -86,8 +86,6 @@ Puis lancer la commande suivante :
   TOKEN = 'créer votre propre token  '
   
   
-  
-  
   Installer ensuite nodemon : 
 
        2)npm install -g nodemon
@@ -95,7 +93,7 @@ Puis lancer la commande suivante :
 
 une fois toute ces étapes réalisés lancer la commande :
     
-    3)nodemon server (ou npx nodemon)
+    3)nodemon server
     
    
    
@@ -132,6 +130,6 @@ et lancer la commande suivante :
  WHERE id = ‘(l’id du compte à transformer en admin)’;
 
 
-Par défaut le serveur client est accessible en local via le port 8080: http://localhost:8080/#/
+Par défaut le serveur client est accessible en local via le port 8080: http://localhost:8080/
 
 Bonne navigation !
