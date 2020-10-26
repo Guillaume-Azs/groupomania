@@ -20,7 +20,7 @@ cd Groupomania
 ______________________________________________
 
 
-* Backend: 
+:arrow_right: Backend: 
 
 Connectez vous à mysql avec vos identifiants et mot de passe habituels, une fois connecté il faut créer la base de donnée Groupomania :
 
@@ -104,7 +104,7 @@ Le serveur backend est à present fonctionnel
 
 
 
-* Frontend:
+:heavy_check_mark: Frontend:
 
  se rendre dans le dossier frontend : cd frontend
 
